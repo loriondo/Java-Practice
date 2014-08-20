@@ -6,7 +6,9 @@
 
 package gpapdf;
 
+import static java.lang.System.out;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -21,7 +23,8 @@ public class GPAPDF {
         // TODO code application logic here
         
         ArrayList<String> temp = new ArrayList<>();
-     
+        
+        out.println("Hello.");
         
     }
     
