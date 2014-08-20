@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Lou Man Chu
+ * @author Lou
  */
 public class GPAPDF {
 
