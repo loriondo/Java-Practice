@@ -8,7 +8,7 @@ package gpapdf;
 
 import static java.lang.System.out;
 import java.util.ArrayList;
-
+import org.apache.pdfbox.ExtractText;
 
 /**
  *
@@ -22,9 +22,9 @@ public class GPAPDF {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ArrayList<String> temp = new ArrayList<>();
         
-        out.println("Hello.");
+        
+        
         
     }
     
