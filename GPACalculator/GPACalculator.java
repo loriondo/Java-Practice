@@ -9,9 +9,7 @@ import java.util.Scanner;
 
 /**
  * Work in progress.
- * Keeping track of one's GPA is a rather important thing to do.
- * Reminds you of where you are as far as grades go and it keeps 
- * my sanity in check sometimes. 
+ * Keeping track of one's GPA is a rather important thing to do. 
  * 
  * The old gpa calculator I used on the the university Oasis website
  * no longer works, and rather than searching through Google to find
@@ -49,11 +47,11 @@ public class GPACalculator {
           out.println("Enter your letter grade and course credit hours like this: ");
           out.println("'A- 4 OR a- 4'" + "\n--------------------------------");
           out.println("Your weighted GPA will be displayed as you enter grades.");
-          out.println("Type delete to remove the previous entry.");
-          out.println("Type exit to terminate the program.");
+          out.println("Type 'delete' to remove the previous entry.");
+          out.println("Type 'show' to display your grade entries.");
+          out.println("Type 'exit' to terminate the program.");
           
           while(!complete){
-              out.print(">> ");
               input = scanner.nextLine();
               if(input.toLowerCase().equals("exit")){
                   out.println("Terminating program.");
@@ -65,46 +63,75 @@ public class GPACalculator {
                   }else{
                       out.println("Can't delete from an empty list.");
                   }
+              }else if(input.toLowerCase().equals("show")){
+                  if(!courseGrades.isEmpty()){
+                      courseGrades
+                              .stream()
+                              .forEach(t -> {
+                                   t.printGrade();
+                              });
+                  }else{
+                      out.println("No grades entered.");
+                  }
               }else if(!input.isEmpty()){
                   String temp[] = input.split(" ", 2);
                   if(temp.length != 2){
                       out.println("Improper input. Format must be: grade hours");
                   }else if(temp.length == 2){
+                      //try catch block, temp[1] not integer
                       int hours = Integer.valueOf(temp[1]);
                       Grade grades = new Grade(null, temp[0], hours);
                       courseGrades.add(grades);
                       
-                      //calculate gpa every entry?
-                      //give option to save to document when exiting?
+                      out.println("Weighted GPA so far.");
+                      out.print(calc.calculateGPA(courseGrades) + "\n");
+                      
+                      //give option to save to file?
                   }
               }
           }
            
        }else if(options  == 2){
+           //Revise section
            out.println("Enter information manually.");
            String input;
            boolean complete = false;
-           out.println("Just follow the instructions to input your grades.");
+           out.println("Enter your course name, followed by grade, followed by hours.");
+           out.println("For example: CSCI4730 A- 4");
            out.println("Whenever you're done, just type 'calculate' and hit enter.");
+           out.println("Type 'show' to display your current entries.");
+           out.println("Type 'delete' to delete your last entry.");
+           out.println("Type 'exit' to terminate the program.");
 
+           //give option to save to file?
            while(!complete){
-               out.println("First, type in the course name. Then hit enter.");
-               String courseName = scanner.next();
-
-               out.println("Next, type in the letter grade you got. Then hit enter.");
-               String grade = scanner.next();
-
-               out.println("Lastly, type in the number of credit hours the class was worth. Then hit enter.");
-               int hours = scanner.nextInt();
-
-               Grade temp = new Grade(courseName.toUpperCase(), grade.toUpperCase(), hours);
-               courseGrades.add(temp);
-               out.println("Course added. Enter 'y' to calculate. Enter 'n' to continue.");
-               input = scanner.next();
-               if(input.equals("y")){
+               input = scanner.nextLine();
+               //String temp[] = input.split(" ", 3);
+               if(input.toLowerCase().equals("show")){
+                   if(!courseGrades.isEmpty()){
+                       courseGrades
+                               .stream()
+                               .forEach(t -> {
+                                   t.printGrade();
+                               });
+                       out.println("Displayed grades.\n");
+                   }else{
+                       out.println("No entries to show.");
+                   }
+               }else if(input.toLowerCase().equals("calculate")){
                    complete = true;
-               }else if(input.equals("n")){
-                   complete = false;
+                   out.println("Calculating weighted GPA.\n");
+               }else if(!input.isEmpty()){
+                   //try catch block 
+                   String temp[] = input.split(" ", 3);
+                   if(temp.length != 3){
+                       out.println("Improper format. Try again.");
+                   }else{
+                       out.println("Grade information entered.");
+                       int hours = Integer.valueOf(temp[2]);
+                       Grade grade = new Grade(temp[0], temp[1], hours);
+                       courseGrades.add(grade);
+                   }
                }
            }
 
