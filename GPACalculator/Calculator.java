@@ -102,4 +102,17 @@ public class Calculator {
         result = totalPoints / totalHours;
         return result;
     }
+    
+    /**
+     * Returns the sum of credit hours for all courses entered.
+     * @param grades
+     * @return totalHours integer value, sum of all credit hours 
+     */
+    public int calculateTotalHours(ArrayList<Grade> grades) {
+        int totalHours = grades
+                .stream()
+                .mapToInt(t -> t.getCreditHours())
+                .sum();
+        return totalHours;
+    }
 }

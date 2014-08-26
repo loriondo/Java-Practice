@@ -173,14 +173,33 @@ public class GPACalculator {
                 }
                 BufferedWriter bw = new BufferedWriter(fw);
                 
-                String header = "Weighted GPA Calculator - Course and Grades.";
+                String header1 = "\n*------------------------------------------*\n";
+                String header2 = "Weighted GPA Calculator - Course and Grades.";
+                String header3 = "\nFormat: (Course name) (Letter Grade) (Hours)";
+                String thours = "\nTotal attempted credit hours: " + calc.calculateTotalHours(courseGrades);
+                String gpaVal = "\nWeighted GPA: " + calc.calculateGPA(courseGrades);
                 
                 try{
-                    bw.write(header);
+                    bw.write(header1 + header2 + header3 + header1);
+                    courseGrades
+                            .stream()
+                            .forEach(g -> {
+                                String cn = g.getCourseName();
+                                String cg = String.valueOf(g.getCourseGrade());
+                                String ch = String.valueOf(g.getCreditHours());
+                                try{
+                                    bw.write("\n" + cn.toUpperCase() + " " + cg.toUpperCase() + " " + ch);
+           
+                                }catch(IOException e){
+                                    out.println("Error writing course info to file: " + e.getMessage());
+                                }
+                            });
+                    bw.write("\n" + header1 + "All courses listed." + gpaVal + thours + header1);
+                    
                 }catch(IOException e){
                     out.println("Error writing to file: " + e.getMessage());
                 }finally{
-                    
+                    //is this proper convention?
                     try{
                         bw.close();
                     }catch(IOException e){
