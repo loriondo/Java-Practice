@@ -6,10 +6,6 @@ package gpacalculator;
 import static java.lang.System.out;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 
 /**
  * Work in progress.
@@ -34,6 +30,7 @@ public class GPACalculator {
     public static void main(String[] args) {
         
        Calculator calc = new Calculator();
+       TextWriter tw = new TextWriter();
        ArrayList<Grade> courseGrades = new ArrayList<Grade>();
        Scanner scanner = new Scanner(System.in);
        
@@ -95,9 +92,6 @@ public class GPACalculator {
               }
           }
           
-          //Save copy to external document
-          
-          
        /* End option 1 */    
        }else if(options  == 2){
        /* Begin option 2 */
@@ -111,7 +105,6 @@ public class GPACalculator {
            out.println("Type 'delete' to delete your last entry.");
            out.println("Type 'done' to exit the program.");
 
-           //give option to save to file?
            while(!complete){
                input = scanner.nextLine();
                if(input.toLowerCase().equals("show")){
@@ -130,8 +123,6 @@ public class GPACalculator {
                    out.println("Weighted GPA: " + calc.calculateGPA(courseGrades));
                }else if(input.toLowerCase().equals("done")){
                    complete = true;
-                   //out.println("Terminating program.");
-                   //System.exit(0);
                }else if(!input.isEmpty()){
                    //try catch block, temp[1] and temp[2] not integers
                    String temp[] = input.split(" ", 3);
@@ -144,8 +135,7 @@ public class GPACalculator {
                        courseGrades.add(grade);
                    }
                }
-           }
-           
+           }  
            //Save copy of information to external document
            out.println("Woud you like to save this information to a text file?");
            out.println("Type yes (y) or no (n)");
@@ -153,65 +143,13 @@ public class GPACalculator {
            if(input2.toLowerCase().equals("yes") || input2.toLowerCase().equals("y")){
                out.println("Saving grade information to weightedgpa.txt");
                
-               /* WORK IN PROGRESS */
-               //Create another class to do this. Below code used for testing only.
-               //Once functionally working, will be revised for cleanliness.
-               File saveFile = new File("/users/Lou/Desktop/weightedgpa.txt");
-               if(!saveFile.exists()){
-                   try{
-                       saveFile.createNewFile();
-                   }catch(IOException e){
-                       out.println("Issue creating save file: " + e.getMessage());
-                   }
-                }
-                
-               FileWriter fw = null;
-                try{
-                    fw = new FileWriter(saveFile.getAbsoluteFile());
-                }catch(SecurityException | IOException e){
-                    out.println("Issue creating writer for save file: " + e.getMessage());
-                }
-                BufferedWriter bw = new BufferedWriter(fw);
-                
-                String header1 = "\n*------------------------------------------*\n";
-                String header2 = "Weighted GPA Calculator - Course and Grades.";
-                String header3 = "\nFormat: (Course name) (Letter Grade) (Hours)";
-                String thours = "\nTotal attempted credit hours: " + calc.calculateTotalHours(courseGrades);
-                String gpaVal = "\nWeighted GPA: " + calc.calculateGPA(courseGrades);
-                
-                try{
-                    bw.write(header1 + header2 + header3 + header1);
-                    courseGrades
-                            .stream()
-                            .forEach(g -> {
-                                String cn = g.getCourseName();
-                                String cg = String.valueOf(g.getCourseGrade());
-                                String ch = String.valueOf(g.getCreditHours());
-                                try{
-                                    bw.write("\n" + cn.toUpperCase() + " " + cg.toUpperCase() + " " + ch);
-           
-                                }catch(IOException e){
-                                    out.println("Error writing course info to file: " + e.getMessage());
-                                }
-                            });
-                    bw.write("\n" + header1 + "All courses listed." + gpaVal + thours + header1);
-                    
-                }catch(IOException e){
-                    out.println("Error writing to file: " + e.getMessage());
-                }finally{
-                    //is this proper convention?
-                    try{
-                        bw.close();
-                    }catch(IOException e){
-                        out.println("Error closing bufferedwriter: " + e.getMessage());
-                    }
-                }
+               /* Writes results of calculation to plain text file. */
+               tw.writeResults(courseGrades, calc.calculateTotalHours(courseGrades), 
+                       calc.calculateGPA(courseGrades));
                 
            }else{
                out.println("Opted out of saving grade information.");
            }
-           
-           /* WORK IN PROGRESS */
            
         /* End option 2 */
         }else{
@@ -220,4 +158,4 @@ public class GPACalculator {
        }
     }
     
-}
+}// main

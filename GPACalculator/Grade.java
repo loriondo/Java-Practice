@@ -27,7 +27,7 @@ public class Grade {
         this.courseName = course;
         this.courseGrade = grade;
         this.creditHours = hours;
-    }
+    }// Grade
     
     /**
      * Getter method for a course name.
@@ -36,7 +36,7 @@ public class Grade {
      */
     public String getCourseName(){
         return this.courseName;
-    }
+    }// getCourseName
     
     /**
      * Getter method for user's grade within a course.
@@ -45,7 +45,7 @@ public class Grade {
      */
     public String getCourseGrade(){
         return this.courseGrade;
-    }
+    }// getCourseGrade
     
     /**
      * Getter method for amount of hours a course is worth.
@@ -54,7 +54,7 @@ public class Grade {
      */
     public int getCreditHours(){
         return this.creditHours;
-    }
+    }// getCreditHours
     
     /**
      * Prints out details about a specific grade object 
@@ -66,7 +66,7 @@ public class Grade {
         System.out.println("Course Grade: " + this.courseGrade);
         System.out.println("Course credit hours: " + this.creditHours);
         System.out.println("-----------------");
-    }
+    }// printGrade
 
     
 }

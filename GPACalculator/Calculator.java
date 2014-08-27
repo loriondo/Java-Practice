@@ -5,8 +5,6 @@ package gpacalculator;
 
 
 import java.util.ArrayList;
-import static java.lang.System.out;
-import java.util.stream.Collectors;
 
 /** IN PROGRESS.
  * Calculator class.
@@ -67,7 +65,7 @@ public class Calculator {
         }
         //out.println(grade + " " + hours + " " + points);
         return points;
-    }
+    }// getGradePoints()
     
     /**
      * Calculates the user's weighted GPA.
@@ -101,7 +99,7 @@ public class Calculator {
         //out.println("Total points " + totalPoints + " total hours " + totalHours);
         result = totalPoints / totalHours;
         return result;
-    }
+    }// calculateGPA
     
     /**
      * Returns the sum of credit hours for all courses entered.
@@ -114,5 +112,5 @@ public class Calculator {
                 .mapToInt(t -> t.getCreditHours())
                 .sum();
         return totalHours;
-    }
+    }// calculateTotalHours
 }
