@@ -8,12 +8,12 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/** IN PROGRESS.
+/**
  * Text writer class.
  * Uses FileWriter and BufferedWriter to write the results of 
  * the GPA Calculator to a plain text file. Each entry the user
  * enters is included in this report. 
- * @author Lou
+ * @author Lou Oriondo
  */
 public class TextWriter {
     
@@ -33,7 +33,8 @@ public class TextWriter {
      */
     public TextWriter(){
         try{
-            saveFile = new File("/users/Lou/Desktop/weightedgpa.txt");
+            String homeFolder = System.getProperty("user.home");
+            saveFile = new File(homeFolder, "gpa.txt");
             fw = new FileWriter(saveFile.getAbsoluteFile());
             bw = new BufferedWriter(fw);
         }catch(IOException | SecurityException e){

@@ -3,12 +3,12 @@
 
 package gpacalculator;
 
-/** IN PROGRESS.
+/** 
  * Grade class.
  * Grade object created from information entered
  * by the user. These values are then used to calculate
  * the user's weighted GPA.
- * @author Lou
+ * @author Lou Oriondo
  */
 public class Grade {
     

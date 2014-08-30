@@ -6,13 +6,13 @@ package gpacalculator;
 
 import java.util.ArrayList;
 
-/** IN PROGRESS.
+/** 
  * Calculator class.
  * Acts like a real life calculator. Methods here
  * deal with actual grade values and hours. Calculations
  * based on the user's input are done with the method in 
  * this class.
- * @author Lou
+ * @author Lou Oriondo
  */
 public class Calculator {
     
