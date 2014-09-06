@@ -5,12 +5,12 @@ import static java.lang.System.out;
 import java.util.Random;
 import java.util.Scanner;
 
-/** INCOMPLETE
- * Solutions to the 99 problems posed at:
- * http://www.tonyballantyne.com/tech/java/99-java-problems/
+/** COMPLETE
+ LoopSolutions to the 99 problems posed at:
+ http://www.tonyballantyne.com/tech/java/99-java-problems/
  * @author Lou
  */
-public class Solutions {
+public class LoopSolutions {
     
     private static Random rn;
     private static Scanner sc;
@@ -18,7 +18,7 @@ public class Solutions {
     /**
      * Constructor.
      */
-    public Solutions(){
+    public LoopSolutions(){
         rn = new Random();
         sc = new Scanner(System.in);
     }

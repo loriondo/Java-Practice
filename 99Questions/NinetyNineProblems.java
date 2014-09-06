@@ -18,22 +18,39 @@ public class NinetyNineProblems {
      */
     public static void main(String[] args) {
         
-        Solutions solution = new Solutions();
+        LoopSolutions loops = new LoopSolutions();
+        ArraySolutions arrays = new ArraySolutions();
         
         out.println("Basic Java 99 Problems.\n");
         
-        solution.oneToTen();
-        solution.oddNumbers();
-        solution.squares();
-        solution.random4();
-        solution.even(20);
-        solution.powers(8);
-        solution.areWeThereYet();
-        solution.triangle();
-        solution.tableSquares();
-        solution.tableSquares(6);
+        /* Loop Solutions */
+        /*loops.oneToTen();
+        loops.oddNumbers();
+        loops.squares();
+        loops.random4();
+        loops.even(20);
+        loops.powers(8);
+        loops.areWeThereYet();
+        loops.triangle();
+        loops.tableSquares();
+        loops.tableSquares(6);*/
+        
+        /* Array Solutions */
+        String[] breakfast = {"Sausage", "Eggs", "Beans", "Bacon", "Tomatoes"};
+        arrays.printArray(breakfast);
+        arrays.lastElement(breakfast);
+        arrays.lastButN(breakfast, 1);
+        arrays.reverse(breakfast);
+        String[] palindrome = {"Fee", "Fi", "Fo", "Fi", "Fee"};
+        /* Problem 3.5 */
+        out.println(arrays.isPalindrome(breakfast));
+        out.println(arrays.isPalindrome(palindrome));
+        out.println("3.5 Complete.\n");
+        out.println(arrays.isPalindromeRecursion(breakfast, 0, breakfast.length-1));
+        out.println(arrays.isPalindromeRecursion(palindrome, 0, breakfast.length-1));
+        /* Complete 3.5 */
+        
         
         out.println("Terminating program.");
-    }//main
-    
+    }    
 }//class
