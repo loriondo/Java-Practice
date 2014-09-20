@@ -139,10 +139,41 @@ public class ArraySolutions {
     /**
      * Problem 3.6.
      * Print out an int array with consecutive duplicates eliminated
-     * @param input 
+     * @param input int array to be checked for duplicates
      */
     public void compress(int[] input){
-        
+        out.println("#6 compress(nums)");
+        out.println("*** Output ***");
+        int temp = -1;
+        for(int i = 0; i < input.length; i++){
+            if(temp != input[i]){
+                out.println(": " + input[i]);
+                temp = input[i];
+            }
+        }
+        out.println("3.6 Complete.\n");
     }//compress
+    
+    /**
+     * Problem 3.7.
+     * Pack consecutive duplicates of char array into Strings.
+     * @param input char array to be checked for consecutive duplicates
+     */
+    public void pack(char[] input){
+        out.println("#7 pack(letters)");
+        out.println("*** Output ***");
+        String s = Character.toString(input[0]);
+        out.print(": ");
+        for(int i = 1; i < input.length; i++){
+            if(input[i-1] != input[i]){
+                out.print(s + ", ");
+                s = Character.toString(input[i]); //replaces printed string with input[i]
+            }else{
+                s = s + input[i];
+            }
+        }
+        out.println(s);
+        out.println("3.7 Complete.\n");
+    }//pack
     
 }// class

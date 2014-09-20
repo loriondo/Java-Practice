@@ -46,9 +46,13 @@ public class NinetyNineProblems {
         out.println(arrays.isPalindrome(breakfast));
         out.println(arrays.isPalindrome(palindrome));
         out.println("3.5 Complete.\n");
-        out.println(arrays.isPalindromeRecursion(breakfast, 0, breakfast.length-1));
-        out.println(arrays.isPalindromeRecursion(palindrome, 0, breakfast.length-1));
+        //out.println(arrays.isPalindromeRecursion(breakfast, 0, breakfast.length-1));
+        //out.println(arrays.isPalindromeRecursion(palindrome, 0, breakfast.length-1));
         /* Complete 3.5 */
+        int[] nums = {1,1,3,3,3,2,2,2,1,1,1,1,4,4,4,4};
+        arrays.compress(nums);
+        char[] letters = {'a','a','a','a','b','c','c','a','a','d','e','e','e','e'};
+        arrays.pack(letters);
         
         
         out.println("Terminating program.");
