@@ -1,5 +1,4 @@
 
-package inheritance;
 
 /**
  * Inheritance.java.

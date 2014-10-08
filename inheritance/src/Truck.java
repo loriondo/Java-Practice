@@ -1,5 +1,5 @@
 
-package inheritance;
+
 
 import static java.lang.System.out;
 
