@@ -57,6 +57,25 @@ public class Matrix {
      * 
      * @return 
      */
+    public double getXFromMatrix(){
+        double x = 0;
+        if(this.type.equals("coordinates")){
+            x = matrix[0][0];
+        }
+        return x;
+    }
+    
+    public double getYFromMatrix(){
+        double y = 0;
+        if(this.type.equals("coordinates")){
+            y = matrix[0][1];
+        }
+        return y;
+    }
+    /**
+     * 
+     * @return 
+     */
     public int getNumRows(){
         return this.rows;
     }//getNumRows
@@ -103,7 +122,7 @@ public class Matrix {
      * @param x 
      * @param y 
      */
-    public void setType(String type, int x, int y){
+    public void setType(String type, double x, double y){
         this.type = type;
         if(type.equals("translation")){
             matrix[2][0] = x;
@@ -117,6 +136,14 @@ public class Matrix {
             matrix[0][2] = 1;
         }
     }//setType
+    
+    /**
+     * 
+     * @param type 
+     */
+    public void setType(String type){
+        this.type = type;
+    }
     
     /**
      * 
@@ -154,7 +181,8 @@ public class Matrix {
         for(int i = 0; i < this.rows; i++){
             for(int j = 0; j < mat.columns; j++){
                 for(int k = 0; k < this.columns; k++){
-                    temp[i][j] += this.matrix[i][k] * mat.matrix[k][j];
+                   temp[i][j] += this.matrix[i][k] * mat.matrix[k][j];
+                   //System.out.println(temp[i][j] + " = " + this.matrix[i][k] + " * " + mat.matrix[k][j]);
                 }
             }
         }
