@@ -30,7 +30,8 @@ public class GraphicsProj3 {
         trans.inputLines()
                 .stream()
                 .forEach(t -> {
-                    out.println(t.x() + ", " + t.y());
+                    out.println(t.getX1() + ", " + t.getY1());
+                    out.println(t.getX2() + ", " + t.getY2());
                 });
         
         out.println("Apply transformation.");
@@ -38,7 +39,8 @@ public class GraphicsProj3 {
         trans.applyTransformation(mat4, trans.inputLines())
                 .stream()
                 .forEach(t-> {
-                   out.println(t.x() + ", " + t.y()); 
+                    out.println(t.getX1() + ", " + t.getY1());
+                    out.println(t.getX2() + ", " + t.getY2());
                 });
         
         

@@ -31,7 +31,7 @@ public class Display {
      * 
      * @param points 
      */
-    public void displayPixels(ArrayList<Coordinates> points){
+    public void displayPixels(ArrayList<DataLine> points){
         
     }
     

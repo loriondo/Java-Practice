@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- *
+ * TO BE COMMENTED.
  * @author Lou
  */
 public class Transformation {
@@ -22,7 +22,6 @@ public class Transformation {
     
     /**
      * Creates a basic translation matrix.
-     * 
      * @param tx
      * @param ty
      * @return 
@@ -60,7 +59,8 @@ public class Transformation {
     }//basicRotate
     
     /**
-     * 
+     * Concatenates two different matrices. 
+     * Assumes the two matrices are able to be multiplied.
      * @param matrix1
      * @param matrix2
      * @return 
@@ -77,30 +77,34 @@ public class Transformation {
     }//concatenate
     
     /**
-     * 
+     * Applies a transformation to a list of lines.
      * @param transMatrix
      * @param datalines
      * @return 
      */
-    public ArrayList<Coordinates> applyTransformation(Matrix transMatrix, ArrayList<Coordinates> datalines){
-        ArrayList<Coordinates> result = new ArrayList<>();
+    public ArrayList<DataLine> applyTransformation(Matrix transMatrix, ArrayList<DataLine> datalines){
+        ArrayList<DataLine> result = new ArrayList<>();
         Transformation trans = new Transformation();
         for(int i = 0; i < datalines.size(); i++){
-            Matrix point = trans.coordinates(datalines.get(i).x(), datalines.get(i).y());
-            Matrix transformed = trans.concatenate(point, transMatrix);
-            transformed.setType("coordinates");
-            Coordinates c = new Coordinates(transformed.getXFromMatrix(), transformed.getYFromMatrix());
+            Matrix c1 = trans.coordinates(datalines.get(i).getX1(), datalines.get(i).getY1());
+            Matrix c2 = trans.coordinates(datalines.get(i).getX2(), datalines.get(i).getY2());
+            Matrix t1 = trans.concatenate(c1, transMatrix);
+            Matrix t2 = trans.concatenate(c2, transMatrix);
+            t1.setType("coordinates");
+            t2.setType("coordinates");
+            DataLine c = new DataLine(t1.getXFromMatrix(), t1.getXFromMatrix(), t2.getXFromMatrix(), t2.getYFromMatrix());
             result.add(c);
         }
         return result;
     }
     
     /**
-     * 
+     * Reads a file and saves sets of coordinates.
+     * These coordinates are two points of a line.
      * @return 
      */
-    public ArrayList<Coordinates> inputLines(){
-        ArrayList<Coordinates> lines = new ArrayList<>();
+    public ArrayList<DataLine> inputLines(){
+        ArrayList<DataLine> lines = new ArrayList<>();
         File datalines; 
         try{
             datalines = new File("/Users/Lou Man Chu/Downloads/datalines.txt");
@@ -110,7 +114,8 @@ public class Transformation {
             while((input = br.readLine()) != null){
                 //System.out.println(input);
                 xy = input.split(" ");
-                Coordinates temp = new Coordinates(Double.valueOf(xy[0]), Double.valueOf(xy[1]));
+                DataLine temp = new DataLine(Double.valueOf(xy[0]), Double.valueOf(xy[1]), 
+                        Double.valueOf(xy[2]), Double.valueOf(xy[3]));
                 lines.add(temp);
             }
         }catch(NullPointerException e){
