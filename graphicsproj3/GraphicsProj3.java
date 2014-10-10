@@ -43,6 +43,10 @@ public class GraphicsProj3 {
                     out.println(t.getX2() + ", " + t.getY2());
                 });
         
+        Projection proj = new Projection();
+        proj.display();
+        proj.setViewport(10, 10, 100, 100);
+        proj.draw(trans.applyTransformation(mat4, trans.inputLines()));
         
     }
     
