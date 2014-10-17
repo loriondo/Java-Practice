@@ -3,8 +3,11 @@ package graphicsproj3;
 
 import static java.lang.System.out;
 /**
- *
+ * Matrix.java.
+ * Class used to represent the mathematical representation
+ * of a Matrix.
  * @author Lou
+ * @since 10/14/2014
  */
 public class Matrix {
     
@@ -15,8 +18,9 @@ public class Matrix {
     
     /**
      * Constructor.
-     * @param rows
-     * @param columns
+     * Creates an identity matrix.
+     * @param rows      integer number of rows in the matrix
+     * @param columns   integer number of columns in the matrix
      */
     public Matrix(int rows, int columns){
         this.rows = rows;
@@ -37,8 +41,8 @@ public class Matrix {
     /**
      * createMatrix().
      * Creates a matrix object from a 2D array.
-     * @param input
-     * @return 
+     * @param input 2D array of doubles
+     * @return      Matrix object that is contains values from 2D array
      */
     public Matrix createMatrix(double[][] input){
         int row = input.length;
@@ -54,17 +58,24 @@ public class Matrix {
     }//createMatrix
     
     /**
-     * 
-     * @return 
-     */
+     * getXFromMatrix().
+     * Retrieves x-coordinate from a coordinate matrix,
+     * represented by 1x3 2D Array.
+     * @return      x-coordinate represented as a double
+     */ 
     public double getXFromMatrix(){
         double x = 0;
         if(this.type.equals("coordinates")){
             x = matrix[0][0];
         }
         return x;
-    }
+    }//getXFromMatrix()
     
+    /**
+     * getYFromMatrix().
+     * Retrieves y-coordinate from a coordinate matrix.
+     * @return      y-coordinate represented as a double
+     */
     public double getYFromMatrix(){
         double y = 0;
         if(this.type.equals("coordinates")){
@@ -73,25 +84,28 @@ public class Matrix {
         return y;
     }
     /**
-     * 
-     * @return 
+     * getNumRows().
+     * Retrieves the number of rows this matrix object has.
+     * @return      integer amount of rows in the matrix
      */
     public int getNumRows(){
         return this.rows;
     }//getNumRows
     
     /**
-     * 
-     * @return 
+     * getNumColumns().
+     * Retrieves the number of columns this matrix object has.
+     * @return      integer amount of columns in the matrix
      */
     public int getNumColumns(){
         return this.columns;
     }//getNumColumns
     
     /**
-     * getRow
-     * @param index
-     * @return 
+     * getRow().
+     * Retrieves the row at 'index' located in the matrix object.
+     * @param index location of the row desired in the matrix object
+     * @return      array of double values in desired row
      */
     public double[] getRow(int index){
         double[] temp = new double[rows];
@@ -103,9 +117,10 @@ public class Matrix {
     }//getRow
     
     /**
-     * 
-     * @param index
-     * @return 
+     * getColumn().
+     * Retrieves the column at 'index' located in matrix object.
+     * @param index location of column desired in the matrix object
+     * @return      array of double values in desired column
      */
     public double[] getColumn(int index){
         double[] temp = new double[columns];
@@ -117,10 +132,13 @@ public class Matrix {
     }//getColumn
     
     /**
-     * 
-     * @param type 
-     * @param x 
-     * @param y 
+     * setType().
+     * Sets the transformation type of the matrix, either 'translation', 'scale', 
+     * or 'coordinates'. Also sets the values transformation values within the matrix.
+     * i.e. Sets tx and ty of translation transformation.
+     * @param type  string representation of transformation type 
+     * @param x     double value of x-coordinate/x transformation
+     * @param y     double value of y-coordinate/y transformation
      */
     public void setType(String type, double x, double y){
         this.type = type;
@@ -138,17 +156,20 @@ public class Matrix {
     }//setType
     
     /**
-     * 
-     * @param type 
+     * setType().
+     * Sets the transformation type of the matrix.
+     * @param type      string representation of transformation type
      */
     public void setType(String type){
         this.type = type;
-    }
+    }//setType()
     
     /**
-     * 
-     * @param type
-     * @param angle 
+     * setType().
+     * Sets transformation type of matrix to 'rotation'. Also sets the angle
+     * of which to rotate data lines. 
+     * @param type      string with value 'rotation'
+     * @param angle     integer value for angle, in degrees
      */
     public void setType(String type, int angle){
         this.type = type;
@@ -159,9 +180,10 @@ public class Matrix {
     }//setType
     
     /**
-     * 
-     * @param row
-     * @param col
+     * setValue().
+     * Sets values inside a matrix at location (row, col) to a double.
+     * @param row integer index within a row inside a Matrix
+     * @param col integer index within a column inside a Matrix
      * @param val 
      */
     public void setValue(int row, int col, double val){
@@ -170,6 +192,7 @@ public class Matrix {
     
     /**
      * multiply().
+     * Multiplies two matrices.
      * @param mat   matrix to be multiplied by.
      * @return      "result" matrix created from two multiplied matrices.
      * @see         http://stackoverflow.com/questions/4111393/get-the-size-of-a-2d-array
@@ -196,7 +219,10 @@ public class Matrix {
     }//multiply
     
     /**
-     * 
+     * displayMatrix().
+     * Displays string representation of a Matrix. Used for debugging purposes.
+     * If wanting to display a Matrix, see draw() method in Projection.java.
+     * @see Projection.java
      */
     public void displayMatrix(){
         out.println(type + " matrix.");
@@ -208,4 +234,4 @@ public class Matrix {
         }
     }//displayMatrix
     
-}
+}//Matrix.java

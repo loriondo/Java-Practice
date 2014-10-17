@@ -13,6 +13,7 @@ import java.util.Random;
  * a JFrame using Java's Swing library.
  * @author Lou Oriondo
  * @version v1.0
+ * @since 9/26/2014
  */
 public class Drawer {
    
