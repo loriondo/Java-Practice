@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-/** INCOMPLETE
+/** 
  * Solutions to Array problems found at:
  * http://www.tonyballantyne.com/tech/java/99-java-problems/
  * @author Lou

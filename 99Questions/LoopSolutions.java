@@ -168,5 +168,19 @@ public class LoopSolutions {
         out.println("2.10 Complete.\n");
     }//tableSquares(n)
     
+    /**
+     * Extra problem. 
+     * Print fibonacci sequence up to max.
+     * @param max
+     * @return 
+     */
+    public int fibonacci(int max){
+        if(max <= 1){
+            return max;
+        }
+        
+        return fibonacci(max - 1) + fibonacci(max - 2); 
+    }// fibonacci()
+    
 }//class
 

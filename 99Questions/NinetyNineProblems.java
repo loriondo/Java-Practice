@@ -20,6 +20,7 @@ public class NinetyNineProblems {
         
         LoopSolutions loops = new LoopSolutions();
         ArraySolutions arrays = new ArraySolutions();
+        StringSolutions strings = new StringSolutions();
         
         out.println("Basic Java 99 Problems.\n");
         
@@ -35,26 +36,36 @@ public class NinetyNineProblems {
         loops.tableSquares();
         loops.tableSquares(6);*/
         
+        /*for(int i = 0; i < 8; i++){
+            out.println(": " + loops.fibonacci(i));
+        }*/
+        
         /* Array Solutions */
-        String[] breakfast = {"Sausage", "Eggs", "Beans", "Bacon", "Tomatoes"};
-        arrays.printArray(breakfast);
-        arrays.lastElement(breakfast);
-        arrays.lastButN(breakfast, 1);
-        arrays.reverse(breakfast);
+        /*String[] breakfast = {"Sausage", "Eggs", "Beans", "Bacon", "Tomatoes"};
+        //arrays.printArray(breakfast);
+        //arrays.lastElement(breakfast);
+        //arrays.lastButN(breakfast, 1);
+        //arrays.reverse(breakfast);
         String[] palindrome = {"Fee", "Fi", "Fo", "Fi", "Fee"};
-        /* Problem 3.5 */
         out.println(arrays.isPalindrome(breakfast));
         out.println(arrays.isPalindrome(palindrome));
         out.println("3.5 Complete.\n");
-        //out.println(arrays.isPalindromeRecursion(breakfast, 0, breakfast.length-1));
-        //out.println(arrays.isPalindromeRecursion(palindrome, 0, breakfast.length-1));
-        /* Complete 3.5 */
+        out.println(arrays.isPalindromeRecursion(breakfast, 0, breakfast.length-1));
+        out.println(arrays.isPalindromeRecursion(palindrome, 0, breakfast.length-1));
         int[] nums = {1,1,3,3,3,2,2,2,1,1,1,1,4,4,4,4};
         arrays.compress(nums);
         char[] letters = {'a','a','a','a','b','c','c','a','a','d','e','e','e','e'};
-        arrays.pack(letters);
+        arrays.pack(letters);*/
         
-        
+        /* String Solutions */
+        strings.countWords("I never saw a purple cow. Ever. Ever.");
+        strings.countLetter('a', "I do what I want.");
+        strings.countAlphanumerics("1984 by George Orwell.");
+        strings.reverse("I never saw a purple cow.");
+        strings.isPalindrome("tattarrattat");
+        strings.isPalindromeV2("Rise to vote, Sir!");
+        strings.removeVowels("I never saw a purple cow.");
+        /* End String Solutions */
         out.println("Terminating program.");
     }    
 }//class
