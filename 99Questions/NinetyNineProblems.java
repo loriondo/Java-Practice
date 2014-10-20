@@ -65,6 +65,9 @@ public class NinetyNineProblems {
         strings.isPalindrome("tattarrattat");
         strings.isPalindromeV2("Rise to vote, Sir!");
         strings.removeVowels("I never saw a purple cow.");
+        strings.spellOut("I never saw a purple cow");
+        out.println(strings.encode("Hello World"));
+        out.println(strings.decode(strings.encode("Hello World")));
         /* End String Solutions */
         out.println("Terminating program.");
     }    

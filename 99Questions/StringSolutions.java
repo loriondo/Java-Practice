@@ -2,8 +2,10 @@
 package pkg99problems;
 
 import static java.lang.System.out;
+import java.util.HashMap;
+import java.util.Map;
 
-/** INCOMPLETE
+/** COMPLETE.
  * Solutions to String problems found at:
  * http://tonyballantyne.com/tech/4-strings/
  * @author Lou
@@ -153,5 +155,88 @@ public class StringSolutions {
         out.println(temp);
         out.println("4.7 Complete.\n");
     }//removeVowels()
+    
+    /**
+     * Problem 4.8.
+     * Spells out input string s.
+     * e.g. I A-M S-P-E-L-L-I-N-G T-H-I-S O-U-T
+     * @param s input String
+     */
+    public void spellOut(String s){
+        out.println("#8 spellOut(s)");
+        out.println("*** Output ***");
+        StringBuilder sb = new StringBuilder();
+        String temp[] = s.split(" ");
+        for(String word : temp){
+            StringBuilder sb2 = new StringBuilder();
+            for(int i = 0; i < word.length(); i++){
+                sb2.append(word.charAt(i));
+                if(i < word.length() - 1){
+                    sb2.append("-");
+                }
+            }
+            sb.append(sb2.toString().toUpperCase());
+            sb.append(" ");
+        }
+        out.println(sb.toString().toUpperCase());
+        out.println("4.8 Complete.\n");
+    }//spellOut
+    
+    /**
+     * Problem 4.9.
+     * Encodes input String with following cipher:
+     * a = 1, b = 2, c = 3, d = 4, etc
+     * @param s input String
+     * @return string representation of cipher
+     */
+    public String encode(String s){
+        out.println("#9 encode(s)");
+        StringBuilder sb = new StringBuilder();
+        for(int i = 0; i < s.length(); i++){
+            Integer t;
+            if(s.charAt(i) == 32){
+                t = 32;
+            }else{
+                t = s.toLowerCase().charAt(i) - 96;
+            }
+            if(t == 32){
+                sb.append(" ");
+            }else{
+                sb.append(t.toString());
+            }
+            if(i < s.length() - 1){
+                sb.append(",");
+            }
+        }
+        out.println("4.9 Complete.");
+        return sb.toString();
+    }//encode
+    
+    /**
+     * Problem 4.10.
+     * Decodes input String using earlier cipher.
+     * @param s input String
+     * @see encode(String s)
+     * @return decoded string 
+     */
+    public String decode(String s){
+        out.println("#10 decode(s)");
+        Map<Integer, Character> dictionary = new HashMap<>();
+        StringBuilder sb = new StringBuilder();
+        for(int i = 1; i <= 26; i++){
+            char c[] = Character.toChars(i+96);
+            dictionary.put(i, c[0]);
+        }
+        String cipher[] = s.split(",");
+        for(String code : cipher){
+            if(code.equals(" ")){
+                sb.append(" ");
+            }else{
+                sb.append(dictionary.get(Integer.valueOf(code)));
+            }
+        }
+        out.println("4.10 Complete.");
+        return sb.toString();
+    }//decode
     
 }//class
