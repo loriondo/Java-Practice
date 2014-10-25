@@ -21,6 +21,7 @@ public class NinetyNineProblems {
         LoopSolutions loops = new LoopSolutions();
         ArraySolutions arrays = new ArraySolutions();
         StringSolutions strings = new StringSolutions();
+        ArithmeticSolutions math = new ArithmeticSolutions();
         
         out.println("Basic Java 99 Problems.\n");
         
@@ -58,7 +59,7 @@ public class NinetyNineProblems {
         arrays.pack(letters);*/
         
         /* String Solutions */
-        strings.countWords("I never saw a purple cow. Ever. Ever.");
+        /*strings.countWords("I never saw a purple cow. Ever. Ever.");
         strings.countLetter('a', "I do what I want.");
         strings.countAlphanumerics("1984 by George Orwell.");
         strings.reverse("I never saw a purple cow.");
@@ -67,8 +68,16 @@ public class NinetyNineProblems {
         strings.removeVowels("I never saw a purple cow.");
         strings.spellOut("I never saw a purple cow");
         out.println(strings.encode("Hello World"));
-        out.println(strings.decode(strings.encode("Hello World")));
+        out.println(strings.decode(strings.encode("Hello World")));*/
         /* End String Solutions */
         out.println("Terminating program.");
+        
+        /* Arithmetic Solutions */
+        math.isPrime(6);
+        math.gcd(1071, 462);
+        math.isCoprime(35, 64);
+        math.phi(10);
+        math.primeFactors(98);
+        math.primesInRange(10, 20);
     }    
 }//class
