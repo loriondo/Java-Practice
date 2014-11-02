@@ -36,7 +36,7 @@ public class ArithmeticSolutions {
     }//isPrime
     
     /**
-     * 
+     * Non-void version of 5.1.
      * @param n
      * @return 
      */
@@ -168,20 +168,80 @@ public class ArithmeticSolutions {
     }//primesInRange
     
     /**
-     * 
-     * @param n 
+     * Problem 5.7.
+     * Print the pair of prime numbers that sum up to the input.
+     * See Goldbach's Conjecture.
+     * @param n - int input
      */
     public void goldbachPair(int n){
-        
+        out.println("#7 goldbachPair(n)");
+        if(n <= 2){
+            out.println("Number is not greater than 2.");
+        }else{
+            boolean complete = false;
+            int i = 1;
+            int p = n;
+            while(!complete){
+                n = n - 1;
+                boolean x = isPrime2(i);
+                boolean y = isPrime2(n);
+                if(x && y){
+                    out.println (i + " + " + n  + " = " + p);
+                    complete = true;
+                }else{
+                    i++;
+                }
+            }
+        }
+        out.println("5.7 Complete.\n");
     }//goldbachPair()
     
     /**
-     * 
+     * Non-void version of 5.7.
+     * @param n
+     * @return int array containing goldbach pair
+     */
+    public int[] goldbachPair2(int n){
+        if(n <= 2){
+            out.println("Number is not greater than 2.");
+            return null;
+        }else{
+            boolean complete = false;
+            int i = 1;
+            int p = n;
+            while(!complete){
+                n = n - 1;
+                boolean x = isPrime2(i);
+                boolean y = isPrime2(n);
+                if(x && y){
+                    complete = true;
+                }else{
+                    i++;
+                }
+            }
+            int[] result = {i, n};
+            return result;
+        }
+    }//goldbachPair2
+    
+    /**
+     * Problem 5.8.
+     * See goldbachPair, problem 5.7. Prints the Goldbach pair for every 
+     * even number between min and max.
      * @param min
      * @param max 
+     * @see goldbachPair
      */
     public void goldbachList(int min, int max){
-        
+        out.println("#8 goldbachList(min, max)");
+        out.println("*** Output ***");
+        for(int i = min; i <= max; i++){
+            if(i % 2 == 0){
+                int[] pair = goldbachPair2(i);
+                out.println(pair[0] + " + " + pair[1] + " = " + i);
+            }
+        }
+        out.println("5.8 Complete.\n");
     }//goldbachList
     
 }//class

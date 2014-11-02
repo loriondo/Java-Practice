@@ -26,7 +26,7 @@ public class NinetyNineProblems {
         out.println("Basic Java 99 Problems.\n");
         
         /* Loop Solutions */
-        /*loops.oneToTen();
+        loops.oneToTen();
         loops.oddNumbers();
         loops.squares();
         loops.random4();
@@ -35,18 +35,19 @@ public class NinetyNineProblems {
         loops.areWeThereYet();
         loops.triangle();
         loops.tableSquares();
-        loops.tableSquares(6);*/
+        loops.tableSquares(6);
+        /* End loop solutions */
         
         /*for(int i = 0; i < 8; i++){
             out.println(": " + loops.fibonacci(i));
         }*/
         
         /* Array Solutions */
-        /*String[] breakfast = {"Sausage", "Eggs", "Beans", "Bacon", "Tomatoes"};
-        //arrays.printArray(breakfast);
-        //arrays.lastElement(breakfast);
-        //arrays.lastButN(breakfast, 1);
-        //arrays.reverse(breakfast);
+        String[] breakfast = {"Sausage", "Eggs", "Beans", "Bacon", "Tomatoes"};
+        arrays.printArray(breakfast);
+        arrays.lastElement(breakfast);
+        arrays.lastButN(breakfast, 1);
+        arrays.reverse(breakfast);
         String[] palindrome = {"Fee", "Fi", "Fo", "Fi", "Fee"};
         out.println(arrays.isPalindrome(breakfast));
         out.println(arrays.isPalindrome(palindrome));
@@ -56,10 +57,11 @@ public class NinetyNineProblems {
         int[] nums = {1,1,3,3,3,2,2,2,1,1,1,1,4,4,4,4};
         arrays.compress(nums);
         char[] letters = {'a','a','a','a','b','c','c','a','a','d','e','e','e','e'};
-        arrays.pack(letters);*/
+        arrays.pack(letters);
+        /* End Array Solutions */
         
         /* String Solutions */
-        /*strings.countWords("I never saw a purple cow. Ever. Ever.");
+        strings.countWords("I never saw a purple cow. Ever. Ever.");
         strings.countLetter('a', "I do what I want.");
         strings.countAlphanumerics("1984 by George Orwell.");
         strings.reverse("I never saw a purple cow.");
@@ -68,9 +70,8 @@ public class NinetyNineProblems {
         strings.removeVowels("I never saw a purple cow.");
         strings.spellOut("I never saw a purple cow");
         out.println(strings.encode("Hello World"));
-        out.println(strings.decode(strings.encode("Hello World")));*/
+        out.println(strings.decode(strings.encode("Hello World")));
         /* End String Solutions */
-        out.println("Terminating program.");
         
         /* Arithmetic Solutions */
         math.isPrime(6);
@@ -79,5 +80,11 @@ public class NinetyNineProblems {
         math.phi(10);
         math.primeFactors(98);
         math.primesInRange(10, 20);
-    }    
+        math.goldbachPair(1856);
+        math.goldbachList(9, 20);
+        /* End Arithmetic Solutions */
+        
+        out.println("Terminating program");
+
+    }//main    
 }//class
